@@ -3,6 +3,7 @@ set ff "/scr/Student-Folders/PRG/PROJECTS/ion-biniding-pockets/files"
 structure          ionized.psf
 coordinates        ionized.pdb
 paraTypeCharmm     on
+
 parameters              $ff/inputs-toppar/par_all36m_prot.prm
 parameters              $ff/inputs-toppar/par_all36_na.prm
 parameters              $ff/inputs-toppar/par_all36_carb.prm

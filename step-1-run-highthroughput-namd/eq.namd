@@ -3,7 +3,7 @@ source common.namd
 bincoordinates     min.coor
 outputName         eq
 temperature        310
-
+GPUresident       on
 timestep           2.0
 rigidBonds         all
 rigidTolerance     1e-8
@@ -15,9 +15,9 @@ langevinDamping    1.0
 langevinTemp       310
 langevinHydrogen   off
 
-fixedAtoms         on
-fixedAtomsFile     fixed.pdb
-fixedAtomsCol      B
+#fixedAtoms         off          # kept off for GPUresident mode
+#fixedAtomsFile     fixed.pdb
+#fixedAtomsCol      B
 
 dcdfreq            500       ;# 1 ps
 dcdUnitCell        yes
