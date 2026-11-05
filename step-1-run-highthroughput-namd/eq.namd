@@ -1,0 +1,27 @@
+# Step 2: 500 ps NVT, only pocket residues + ions + water move (fixed.pdb, beta=1 -> frozen)
+source common.namd
+bincoordinates     min.coor
+outputName         eq
+temperature        310
+
+timestep           2.0
+rigidBonds         all
+rigidTolerance     1e-8
+nonbondedFreq      1
+fullElectFrequency 2
+
+langevin           on
+langevinDamping    1.0
+langevinTemp       310
+langevinHydrogen   off
+
+fixedAtoms         on
+fixedAtomsFile     fixed.pdb
+fixedAtomsCol      B
+
+dcdfreq            500       ;# 1 ps
+dcdUnitCell        yes
+restartfreq        2500
+outputEnergies     500
+outputTiming       5000
+run                250000      ;# 500 ps at 2 fs

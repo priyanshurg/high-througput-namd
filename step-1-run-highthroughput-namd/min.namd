@@ -1,0 +1,12 @@
+# Step 1: 5000-step minimisation, everything free
+source common.namd
+
+outputName         min
+temperature        0
+timestep           1.0
+rigidBonds         none
+nonbondedFreq      1
+fullElectFrequency 1
+restartfreq        1000
+outputEnergies     100
+minimize           5000

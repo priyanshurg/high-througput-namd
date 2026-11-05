@@ -1,0 +1,15 @@
+# PDB Database coordinate files
+PDB-Database/*
+!PDB-Database/README.md
+
+# Simulation outputs and trajectories
+step-1-out/*
+!step-1-out/README.md
+
+# Python cache and temporary files
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+*.tmp
+.DS_Store

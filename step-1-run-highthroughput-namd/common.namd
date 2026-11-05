@@ -1,0 +1,75 @@
+# shared by min.namd and eq.namd  (CHARMM36m, PME, periodic box from cell.tcl)
+set ff "/scr/Student-Folders/PRG/PROJECTS/ion-biniding-pockets/files"
+structure          ionized.psf
+coordinates        ionized.pdb
+paraTypeCharmm     on
+parameters              $ff/inputs-toppar/par_all36m_prot.prm
+parameters              $ff/inputs-toppar/par_all36_na.prm
+parameters              $ff/inputs-toppar/par_all36_carb.prm
+parameters              $ff/inputs-toppar/par_all36_lipid.prm
+parameters              $ff/inputs-toppar/par_all36_cgenff.prm
+parameters              $ff/inputs-toppar/par_interface.prm
+parameters              $ff/inputs-toppar/toppar_all36_moreions.str
+parameters              $ff/inputs-toppar/toppar_all36_nano_lig.str
+parameters              $ff/inputs-toppar/toppar_all36_nano_lig_patch.str
+parameters              $ff/inputs-toppar/toppar_all36_synthetic_polymer.str
+parameters              $ff/inputs-toppar/toppar_all36_synthetic_polymer_patch.str
+parameters              $ff/inputs-toppar/toppar_all36_polymer_solvent.str
+parameters              $ff/inputs-toppar/toppar_water_ions.str
+parameters              $ff/inputs-toppar/toppar_dum_noble_gases.str
+parameters              $ff/inputs-toppar/toppar_ions_won.str
+parameters              $ff/inputs-toppar/cam.str
+parameters              $ff/inputs-toppar/toppar_all36_prot_arg0.str
+parameters              $ff/inputs-toppar/toppar_all36_prot_c36m_d_aminoacids.str
+parameters              $ff/inputs-toppar/toppar_all36_prot_fluoro_alkanes.str
+parameters              $ff/inputs-toppar/toppar_all36_prot_heme.str
+parameters              $ff/inputs-toppar/toppar_all36_prot_na_combined.str
+parameters              $ff/inputs-toppar/toppar_all36_prot_retinol.str
+parameters              $ff/inputs-toppar/toppar_all36_prot_model.str
+parameters              $ff/inputs-toppar/toppar_all36_prot_modify_res.str
+parameters              $ff/inputs-toppar/toppar_all36_na_nad_ppi.str
+parameters              $ff/inputs-toppar/toppar_all36_na_rna_modified.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_sphingo.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_archaeal.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_bacterial.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_cardiolipin.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_cholesterol.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_dag.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_inositol.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_lnp.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_lps.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_mycobacterial.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_miscellaneous.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_model.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_prot.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_tag.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_yeast.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_hmmm.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_detergent.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_ether.str
+parameters              $ff/inputs-toppar/toppar_all36_lipid_oxidized.str
+parameters              $ff/inputs-toppar/toppar_all36_carb_glycolipid.str
+parameters              $ff/inputs-toppar/toppar_all36_carb_glycopeptide.str
+parameters              $ff/inputs-toppar/toppar_all36_carb_imlab.str
+parameters              $ff/inputs-toppar/toppar_all36_label_spin.str
+parameters              $ff/inputs-toppar/toppar_all36_label_fluorophore.str
+foreach p [split $env(EXTRA_PAR) ":"] { if {$p ne ""} { parameters $p } }
+
+source cell.tcl
+cellBasisVector1   $cbx 0 0
+cellBasisVector2   0 $cby 0
+cellBasisVector3   0 0 $cbz
+cellOrigin         $cox $coy $coz
+wrapAll            on
+
+exclude            scaled1-4
+1-4scaling         1.0
+switching          on
+switchdist         10.0
+cutoff             12.0
+pairlistdist       14.0
+vdwForceSwitching  on
+LJcorrection       on
+PME                yes
+PMEGridSpacing     1.0
+stepspercycle      10
