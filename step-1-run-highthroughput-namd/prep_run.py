@@ -192,7 +192,7 @@ def process(pdb, a):
     env = os.environ.copy()
     env.update(FF_DIR=str(Path(a.ff_dir).resolve()), EXTRA_TOP=a.extra_top, EXTRA_PAR=a.extra_par,
                PADDING=str(a.padding), POCKET_CUTOFF=str(a.pocket_cutoff), SALT_CONC=str(a.salt_conc))
-    namd = shlex.split(a.namd) + [f"+p{a.cores}", "+devices", str(a.gpu_id)]
+    namd = shlex.split(a.namd) + [f"+p{a.cores}", "+devices", str(a.gpuid)]
     vmd = shlex.split(a.vmd) + ["-dispdev", "text", "-e"]
     try:
         sh(vmd + ["build.tcl"], wd / "build.log", wd, env)
@@ -224,7 +224,6 @@ def main():
     p.add_argument("--namd", default="namd3", help='e.g. "namd2" or "namd3" or "charmrun ++local namd2"')
     p.add_argument("--prep-only", action="store_true", help="stop after build/solvate (inspect first!)")
     p.add_argument("--force", action="store_true")
-    p.add_argument("--gpu-resident", action="store_true", help="use GPU-resident mode (NAMD 3 only)")
     p.add_argument("--gpu-id", default="0", help='specify GPU ID to use for NAMD (e.g. "0" or "0,1" or "0,1,2,3"). Can only specify one GPU ID if using gpu-resident mode.')
     a = p.parse_args()
 
