@@ -36,7 +36,7 @@ This toolkit provides:
 - **Targeted PDB Mining**: Automated querying of RCSB PDB Search API v2 for protein-only entries bearing non-covalently coordinated ions.
 - **Robust Cleaning & Disulfide Detection**: Automated extraction of primary models, resolution of alternate conformations, removal of crystal waters and irrelevant ligands, auto-detection of disulfide bridges ($< 2.5\text{ \AA}$), and standard histidine mapping (`HSD`/`HSE`/`HSP`).
 - **Standardized Topology Generation**: Uses VMD `psfgen` with CHARMM36m to reconstruct missing heavy atoms and hydrogens, build periodic boundaries, solvate with TIP3P water, and neutralize/ionize to physiological salt concentrations.
-- **Localized Pocket Dynamics**: Minimizes the entire system, dynamically identifies all protein residues within a cutoff (default: $7.0\text{ \AA}$) of any bound ion, freezes bulk exterior protein residues (`beta=1`), and leaves the pocket, ions, and solvent fully flexible (`beta=0`) during 500 ps NVT equilibration.
+~- **Localized Pocket Dynamics**: Minimizes the entire system, dynamically identifies all protein residues within a cutoff (default: $7.0\text{ \AA}$) of any bound ion, freezes bulk exterior protein residues (`beta=1`), and leaves the pocket, ions, and solvent fully flexible (`beta=0`) during 500 ps NVT equilibration.~
 
 ---
 
